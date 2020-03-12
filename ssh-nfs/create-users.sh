@@ -10,6 +10,10 @@ for file in `ls -1 /tmp/users/*.pub`; do
     username=`basename $file | sed 's/.pub$//'`
     echo "Creating ssh user $username"
     useradd $username
-    mkdir /home/$username/.ssh
-    cat $file > /home/$username/.ssh/authorized_keys
+    SSHDIR=/home/$username/.ssh
+    mkdir $SSHDIR
+    cat $file > $SSHDIR/authorized_keys
+    chown -R $username:$username $SSHDIR
+    chmod 0700 $SSHDIR
+    chmod 0600 $SSHDIR/authorized_keys
 done
