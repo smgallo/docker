@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    ssh-nfs:
+        build: .
+        ports:
+            - "9022:22"
+        environment:
+            - SERVER=192.168.0.3
+            - SHARE=/volume1/video
+            - MOUNTPOINT=/mnt/videos
+            - MOUNT_OPTIONS=ro
+        volumes:
+            - ./users:/tmp/users
+        privileged: true
