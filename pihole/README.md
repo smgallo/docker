@@ -27,7 +27,7 @@ services:
       - "8443:443/tcp"
     environment:
       TZ: 'America/New_York'
-      WEBPASSWORD: 'zaq12wsx'
+      WEBPASSWORD: 'MY-WEB-PASSWORD'
 # Default DNS is google (8.8.8.8). Add cloudflare as secondary.
       DNS2: '1.1.1.1'
       ServerIP: '192.168.0.4'
