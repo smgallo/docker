@@ -1,18 +1,8 @@
-version: "2"
+version: "3"
 
 # More info at https://github.com/pi-hole/docker-pi-hole/#running-pi-hole-docker
 # https://hub.docker.com/r/pihole/pihole/ and https://docs.pi-hole.net/
-#
-# The following firewall ports must be open on the host
-#
-# ufw allow 9080 comment "Pihole"
-# ufw allow 9443 comment "Pihole"
-#
-# Set DNS on router to be PiHole server 192.168.0.4 with backup as cloudflare 1.1.1.1 or
-# google 8.8.8.8
 
-9080/tcp                   ALLOW       Anywhere                   # PiHole
-9443/tcp                   ALLOW       Anywhere                   # PiHole
 services:
   pihole:
     container_name: pihole
@@ -26,17 +16,16 @@ services:
       - "9443:443/tcp"
     environment:
       TZ: 'America/New_York'
-      WEBPASSWORD: 'MY-WEB-PASSWORD'
-    # Default DNS is google (8.8.8.8). Add cloudflare as secondary.
-      DNS2: '1.1.1.1'
-    # This should be the IP of the docker host
-      ServerIP: '192.168.0.4'
+      WEBPASSWORD: 'XXXXXXXXXX'
+# Default DNS is localhost for home network, google (8.8.8.8), cloudflare (1.1.1.1)
+      PIHOLE_DNS_: '127.0.0.1;8.8.8.8;1.1.1.1'
+      FTLCONF_REPLY_ADDR4: '192.168.0.4'
     # Volumes store your data between container upgrades
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-    # Set DNS servers. Note 127.0.0.1 is necessary
-    # These can also be set via ENV vars or directly on the PiHole settings > DNS tab
+# Set DNS servers. Note 127.0.0.1 is necessary
+# These can also be set via ENV vars or directly on the PiHole settings > DNS tab
     dns:
       - 127.0.0.1
       - 1.1.1.1

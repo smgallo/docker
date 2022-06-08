@@ -1,6 +1,8 @@
 # PiHole
 
 Network-wide ad blocking https://pi-hole.net/
+GitHub: https://github.com/pi-hole/docker-pi-hole
+Docker: https://hub.docker.com/r/pihole/pihole/
 
 Admin console is http://192.168.0.4:8080/admin/settings.php
 
@@ -9,10 +11,10 @@ Admin console is http://192.168.0.4:8080/admin/settings.php
 Example docker-compose.yml
 
 ```
-version: "2"
+version: "3"
 
 # More info at https://github.com/pi-hole/docker-pi-hole/#running-pi-hole-docker
-# and https://docs.pi-hole.net/
+# https://hub.docker.com/r/pihole/pihole/ and https://docs.pi-hole.net/
 
 services:
   pihole:
@@ -23,24 +25,18 @@ services:
       - "53:53/udp"
 # We are not running DHCP
 #      - "67:67/udp"
-      - "8080:80/tcp"
-      - "8443:443/tcp"
+      - "9080:80/tcp"
+      - "9443:443/tcp"
     environment:
       TZ: 'America/New_York'
-      WEBPASSWORD: 'zaq12wsx'
-# Default DNS is google (8.8.8.8). Add cloudflare as secondary.
-      DNS2: '1.1.1.1'
-      ServerIP: '192.168.0.4'
+      WEBPASSWORD: 'XXXXXXXXXX'
+# Default DNS is localhost for home network, google (8.8.8.8), cloudflare (1.1.1.1)
+      PIHOLE_DNS_: '127.0.0.1;8.8.8.8;1.1.1.1'
+      FTLCONF_REPLY_ADDR4: '192.168.0.4'
     # Volumes store your data between container upgrades
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-# Set DNS servers. Note 127.0.0.1 is necessary
-# These can also be set via ENV vars or directly on the PiHole settings > DNS tab
-    dns:
-      - 127.0.0.1
-      - 1.1.1.1
-      - 8.8.8.8
 # Recommended but not required (DHCP needs NET_ADMIN)
 #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
 #    cap_add:
