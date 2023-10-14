@@ -58,3 +58,11 @@ ufw allow 9443 comment "Pihole HTTPS"
 
 Set DNS on router to be PiHole server 192.168.0.4 with backup as cloudflare 1.1.1.1 or
 google 8.8.8.8
+
+## Upgrading
+
+```
+docker pull pihole/pihole
+docker-compose down
+docker-compose up -d
+```
