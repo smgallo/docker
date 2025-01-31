@@ -1,0 +1,100 @@
+[
+    {
+        "name": "webit/complex-number",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dbojdo/complex-number.git",
+            "reference": "7fd8befcdd7ef25271f26e368c80947a2c223cd6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dbojdo/complex-number/zipball/7fd8befcdd7ef25271f26e368c80947a2c223cd6",
+            "reference": "7fd8befcdd7ef25271f26e368c80947a2c223cd6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.2"
+        },
+        "time": "2015-05-09T09:49:33+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Webit\\Math\\ComplexNumber\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Daniel Bojdo",
+                "email": "daniel.bojdo@web-it.eu"
+            }
+        ],
+        "description": "Web-IT Complex number wrapper",
+        "keywords": [
+            "complex number"
+        ]
+    },
+    {
+        "name": "webit/fft",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dbojdo/fft.git",
+            "reference": "74c5ceb3fc598192ea2d807dd37ec53423dce8bd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dbojdo/fft/zipball/74c5ceb3fc598192ea2d807dd37ec53423dce8bd",
+            "reference": "74c5ceb3fc598192ea2d807dd37ec53423dce8bd",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "webit/complex-number": "~1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.2"
+        },
+        "time": "2015-05-09T09:58:21+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Webit\\Math\\Fft\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Daniel Bojdo",
+                "email": "daniel.bojdo@web-it.eu"
+            }
+        ],
+        "description": "Web-IT FFT Library",
+        "keywords": [
+            "fast fourier",
+            "fft",
+            "fourier",
+            "ifft",
+            "signal",
+            "transformation"
+        ]
+    }
+]

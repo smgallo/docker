@@ -1,0 +1,22 @@
+version: "3"
+
+# docker-compose up -d
+# /usr/local//Cellar/mysql-client/8.0.22/bin/mysql -u root -h 127.0.0.1 -p
+
+services:
+    php:
+        image: php:apache
+        #        build: ./
+        ports:
+            - 8083:80
+        volumes:
+            - ./html:/var/www/html
+    mysql:
+        image: mariadb:latest
+        volumes:
+            - ./mysqldumps:/docker-entrypoint-initdb.d
+        ports:
+            - 3306:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=zaq12wsx
+            - TZ=America/New_York

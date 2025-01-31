@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <!-- Bootstrap 4 + datatables -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  </head>
+  <body>
+    <h2> Bootstrap 4 + Datatables no Extras </h2>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Panel heading without title</h5>
+              <p class="card-text">
+              Card content
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>Card title</h3>
+            </div>
+            <div class="card-body">
+              <table id="mytable" class="table table-striped">
+                <thead>
+                  <th>Name</th>
+                  <th>Total</th>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- row -->
+
+    </div>
+  </body>
+</html>
+<script>
+$( document ).ready(function() {
+    $('#mytable').dataTable({
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "ajax": "data.json",
+        "columns": [
+            { "data": "name" },
+            { "data": "number" }
+        ]
+    });
+});
+</script>

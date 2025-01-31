@@ -1,0 +1,31 @@
+{
+    "name" : "webit/complex-number",
+    "type" : "library",
+    "description": "Web-IT Complex number wrapper",
+    "keywords": ["complex number"],
+    "authors": [{
+        "name": "Daniel Bojdo",
+        "email": "daniel.bojdo@web-it.eu"
+    }],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webit\\Math\\ComplexNumber\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webit\\Math\\ComplexNumber\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
